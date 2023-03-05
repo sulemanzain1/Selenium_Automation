@@ -1,2 +1,28 @@
-This Program Search Your Weblinks without ads in a seconds. You Can go and change your Query list in the lastn
-nnkknkn
+This Python code utilizes Selenium for automating web browser interactions to perform Google searches on a list of given queries and retrieve the web links. Here is how the code works:
+
+The Code imports required packages/modules/libraries used in this script:
+
+from selenium import webdriver: Importing 'webdriver' package which basically allows to programmatically control an uncontrolled browser.
+
+from selenium.webdriver.support.ui import WebDriverWait: Importing WebDriverWait module from selenium.webdriver.support.ui allowing the script to wait until an expected condition has been met before continuing.
+
+from selenium.webdriver.support import expected_conditions as EC
+import pyautogui : Expected Conditions are predefined objects provided by the WebDriver and hold a set of useful conditions that reduce coupling and improve code readability.
+
+from selenium.webdriver.common.by import By : This module defines some common methods/properties useful in locators
+
+from selenium.webdriver.chrome.options import Options as ChromeOptions : options that you can use to configure ChromeDriver session with Chrome.
+
+from selenium.webdriver.firefox.options import Options as FirefoxOptions : arguments and parameters/options that you can use to configure the FF driver instance
+
+Time and pandas libraries are also imported in the beginning but they are not related to automation.
+
+The create_driver() Function tries to create a web driver depending on input preference. It will raise an exception in case it is unable to any supported web driver.
+
+The close_driver() function is used to terminate the driver.
+
+The search_queries() method gets a webdriver object and a list of search queries as parameters. It then loops over the queries, performs a Google search on each query, extracts all of the search results' anchor links and returns them in a list format with details like the query searched and source link.
+
+Finally, the main program execution calls the create_driver() function to get a driver instance and sets a list of 'queries' to scrape data using Google search. The obtained search results are later printed as a Pandas dataframe.
+
+If the resulting data isn't empty, the program converts the information to a Pandas DataFrame and saves the dataframe into an excel file, which is commented out in the code block; instead, we print the results on the console. However, if no search results are found for any query, the code outputs "No Search Results Found."
